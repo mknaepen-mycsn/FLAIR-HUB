@@ -166,7 +166,8 @@ def init_outputs(config: Dict, ref_img: DatasetReader) -> Tuple[Dict[str, Datase
             profile.update({
                 "count": num_classes if output_type == "class_prob" else 1,
                 "dtype": "uint8",
-                "compress": "lzw"
+                "compress": "lzw",
+                "driver": "GTiff"
             })
             profile.pop('photometric', None)
         else:
@@ -363,3 +364,4 @@ def run_inference(config_path: str) -> None:
         sys.stdout = sys.__stdout__
 
         sys.stderr = sys.__stderr__
+
